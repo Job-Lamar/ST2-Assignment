@@ -14,7 +14,11 @@ def sum_of_natural_numbers(n):
         return n + sum_of_natural_numbers(n - 1) # Recursive case
 
 # Example usage:
-result = sum_of_natural_numbers(5)  # Calculates 1 + 2 + 3 + 4 + 5
+result = sum_of_natural_numbers(5) # Calculates 1 + 2 + 3 + 4 + 5
+
+# Test Cases
+result2 = sum_of_natural_numbers(6)
+result3 = sum_of_natural_numbers(7)
 print(f"The sum of the first 5 natural numbers is {result}")
 
 
@@ -30,9 +34,11 @@ def fibonacci(n):
 
 # Example usage:
 result = fibonacci(7)  # Calculates the 7th Fibonacci number (1, 1, 2, 3, 5, 8, 13, ...)
+result2 = fibonacci(5)
+result3 = fibonacci(6)
 print(f"The 7th Fibonacci number is {result}")
-
-
+print(f"The 5th Fibonacci number is {result2}")
+print(f"The 6th Fibonacci number is {result3}")
 
 # CHALLENGE: Use recursion to calculate the factorial.
 def factorial(n):
@@ -53,6 +59,8 @@ def factorial(n):
 # Example usage:
 num = 5
 result = factorial(num)
+result2 = factorial(6)
+result3 = factorial(7)
 print(f"The factorial of {num} is {result}")
 
 
