@@ -28,7 +28,7 @@ def iter_sum_of_natural_numbers(n):
     for i in range(1, n+1):
         total += i
 
-        return total
+    return total
 
 # RECURSIVELY CALCULATING FIBONACCI SEQUENCE (more difficult example)
 # f(n) = f(n - 1) + f(n - 2)
@@ -64,7 +64,7 @@ def iter_fibonnaci(n):
         a = b
         b = c
 
-        return b
+    return b
 
 # CHALLENGE: Use recursion to calculate the factorial.
 def factorial(n):
@@ -99,7 +99,7 @@ def iter_factorial(n):
 
         if_total *= i
 
-        return if_total
+    return if_total
 
 
 # MINI-PROJECT: MERGE SORT (A real-world sorting algorithm)
