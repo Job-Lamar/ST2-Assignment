@@ -115,3 +115,11 @@ print(l)
 print()
 sorted = insertion_sort(l)
 print(sorted[:50])
+
+# Benchmark
+
+time1 = timeit.timeit("merge_sort", globals=globals(), number=10000)
+time2 = timeit.timeit("insertion_sort", globals=globals(), number=10000)
+
+print("merge_sort", time1)
+print("insertion_sort", time2)
