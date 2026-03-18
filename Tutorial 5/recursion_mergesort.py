@@ -221,6 +221,20 @@ while n > 0:
     sum += n
 print(sum)
 
+# Insert sort test cases
+l = [2, 6, 9, 5, 3, 4, 5, 6, 6, 7] # [random.randint(1, 10) for _ in range(10)]
+print(l)
+print()
+sorted = insertion_sort(l)
+print(sorted)
+
+l = [1]
+sorted = insertion_sort(l)
+print(sorted)
+
+l = [random.randint(1, 1000) for n in range(10000)]
+sorted = insertion_sort(l)
+print(sorted[:50])
 
 
 
