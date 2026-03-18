@@ -21,6 +21,14 @@ result2 = sum_of_natural_numbers(6)
 result3 = sum_of_natural_numbers(7)
 print(f"The sum of the first 5 natural numbers is {result}")
 
+## ITERATIVE CONVERSION: SUM
+def iter_sum_of_natural_numbers(n):
+    total = 0
+
+    for i in range(1, n+1):
+        total += i
+
+        return total
 
 # RECURSIVELY CALCULATING FIBONACCI SEQUENCE (more difficult example)
 # f(n) = f(n - 1) + f(n - 2)
@@ -39,6 +47,24 @@ result3 = fibonacci(6)
 print(f"The 7th Fibonacci number is {result}")
 print(f"The 5th Fibonacci number is {result2}")
 print(f"The 6th Fibonacci number is {result3}")
+
+## ITERATIVE CONVERSION: FIBONNACI
+def iter_fibonnaci(n):
+
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    a = 0
+    b = 1
+    
+    for i in range(2, n+1):
+        c = a+b
+        a = b
+        b = c
+
+        return b
 
 # CHALLENGE: Use recursion to calculate the factorial.
 def factorial(n):
@@ -62,6 +88,18 @@ result = factorial(num)
 result2 = factorial(6)
 result3 = factorial(7)
 print(f"The factorial of {num} is {result}")
+
+## ITERATIVE CONVERSION: FACTORIAL
+
+def iter_factorial(n):
+    
+    if_total = 1
+
+    for i in range(1, n+1):
+
+        if_total *= i
+
+        return if_total
 
 
 # MINI-PROJECT: MERGE SORT (A real-world sorting algorithm)
