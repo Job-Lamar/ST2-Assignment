@@ -1,9 +1,9 @@
 
 def main():
     n = eval(input("Enter number of disks: "))
-    # Find the solution recursively
+    print("The moves are:")
     move_total = moveDisks(n, "A", "B", "C")
-    print("The moves are:", move_total)
+    print("Number of moves is", move_total)
     
 
 # The function for finding the solution to move n disks
