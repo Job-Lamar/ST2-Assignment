@@ -54,7 +54,7 @@ def pq_peek(pq):
     return pq[0] if pq else None
 
 def main():
-    size = 1000
+    size = 100000
     values = [random.randint(1, 10**6) for _ in range(size)]
 
     print(f"Benchmarking with {size} values")
