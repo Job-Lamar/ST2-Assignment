@@ -5,9 +5,11 @@ g = Graph()
 g.add_vertex('A')
 g.add_vertex('B')
 g.add_vertex('C')
+g.add_vertex('D')
 
 g.add_edge('A', 'B')
 g.add_edge('B', 'C')
+g.add_edge('C', 'D')
 
 g.print_graph()
 print()
@@ -18,23 +20,25 @@ g = Graph(directed=True)
 g.add_vertex('A')
 g.add_vertex('B')
 g.add_vertex('C')
+g.add_vertex('D')
 
 g.add_edge('A', 'B')
 g.add_edge('B', 'C')
+g.add_edge('C', 'D')
 
 g.print_graph()
 print()
 
 # Weighted graph tests
-g = Graph(weighted=True, directed=True)
-g.add_vertex('A')
-g.add_vertex('B')
-g.add_vertex('C')
+# g = Graph(weighted=True, directed=True)
+# g.add_vertex('A')
+# g.add_vertex('B')
+# g.add_vertex('C')
 
-g.add_edge('A', 'B', 15)
-g.add_edge('B', 'C', 34)
+# g.add_edge('A', 'B', 15)
+# g.add_edge('B', 'C', 34)
 
-g.print_graph()
+# g.print_graph()
 
 
 # Removal tests
@@ -44,13 +48,15 @@ removal_test = Graph()
 removal_test.add_vertex('A')
 removal_test.add_vertex('B')
 removal_test.add_vertex('C')
+removal_test.add_vertex('D')
 
 removal_test.add_edge('A', 'B')
 removal_test.add_edge('B', 'C')
+removal_test.add_edge('C', 'D')
 
 removal_test.print_graph()
 
-removal_test.remove_edge('A', 'B')
+removal_test.remove_edge('B', 'C')
 
 removal_test.print_graph()
 
