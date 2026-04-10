@@ -34,9 +34,11 @@ print()
 # g.add_vertex('A')
 # g.add_vertex('B')
 # g.add_vertex('C')
+# g.add_vertex('D')
 
 # g.add_edge('A', 'B', 15)
 # g.add_edge('B', 'C', 34)
+# g.add_edge('C', 'D', 67)
 
 # g.print_graph()
 
@@ -80,11 +82,12 @@ print("Visited vertices in DFS order:", visited_dfs)
 #cycle detection in undirected graphs
 # Create graph with a cycle
 cycle_graph = Graph(directed=False)
-for v in ['A', 'B', 'C']:
+for v in ['A', 'B', 'C', 'D']:
     cycle_graph.add_vertex(v)
 cycle_graph.add_edge('A', 'B')
 cycle_graph.add_edge('B', 'C')
-cycle_graph.add_edge('C', 'A')  # Closing the cycle
+cycle_graph.add_edge('C', 'D')
+cycle_graph.add_edge('D', 'A')  # Closing the cycle
 
 print("Does cycle_graph have a cycle? ", cycle_graph.has_undirected_cycle())
 
@@ -98,11 +101,12 @@ print("Does acyclic_graph have a cycle? ", acyclic_graph.has_undirected_cycle())
 
 # Create weighted directed graph
 wg = Graph(directed=True, weighted=True)
-for v in ['A', 'B', 'C']:
+for v in ['A', 'B', 'C', 'D']:
     wg.add_vertex(v)
 wg.add_edge('A', 'B', weight=15)
 wg.add_edge('B', 'C', weight=34)
-wg.add_edge('A', 'C', weight=50)
+wg.add_edge('C', 'D', weight=67)
+wg.add_edge('A', 'D', weight=50)
 print("Weighted Directed Graph:")
 wg.print_graph()
 
