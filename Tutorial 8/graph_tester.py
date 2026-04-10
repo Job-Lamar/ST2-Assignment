@@ -110,5 +110,15 @@ wg.add_edge('A', 'D', weight=50)
 print("Weighted Directed Graph:")
 wg.print_graph()
 
+# BFS on the graph from Activity 1
+print("BFS starting from vertex 'A':")
+visited_bfs = g.bfs('A')
+print("Visited vertices in BFS order:", visited_bfs)
+
+# DFS on the same graph
+print("DFS starting from vertex 'A':")
+visited_dfs = g.dfs('A')
+print("Visited vertices in DFS order:", visited_dfs)
+
 
 
