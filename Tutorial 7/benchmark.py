@@ -381,7 +381,7 @@ def run_benchmark_for_sizes(sizes, num_search=100, num_delete=50):
 
 # Example usage:
 if __name__ == "__main__":
-    sizes_to_test = [100, 500, 1000, 5000, 10000]
+    sizes_to_test = [100, 500, 1000, 5000, 100]
     run_benchmark_for_sizes(sizes_to_test)
 
 
