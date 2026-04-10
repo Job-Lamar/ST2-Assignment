@@ -120,5 +120,3 @@ print("DFS starting from vertex 'A':")
 visited_dfs = g.dfs('A')
 print("Visited vertices in DFS order:", visited_dfs)
 
-
-
