@@ -3,6 +3,8 @@ import random
 import string
 import tkinter as tk
 from tkinter import ttk
+import matplotlib.pyplot as plt
+
 
 # ===== BST Node and BST Class =====
 
@@ -300,7 +302,89 @@ class BenchmarkApp:
         for op in ['Insertions', 'Searches', 'Deletions']:
             bst_time, avl_time = results[op]
             self.tree.insert('', tk.END, values=(f"{bst_time:.6f}", f"{avl_time:.6f}"), text=op)
-        
+
+def run_benchmark_for_sizes(sizes, num_search=100, num_delete=50):
+    bst_times = {'insert': [], 'search': [], 'delete': []}
+    avl_times = {'insert': [], 'search': [], 'delete': []}
+
+    for n in sizes:
+        names = [''.join(random.choices(string.ascii_lowercase, k=8)) for _ in range(n)]
+        phones = [''.join(random.choices(string.digits, k=10)) for _ in range(n)]
+
+        search_names = random.sample(names, min(num_search, n))
+        delete_names = random.sample(names, min(num_delete, n))
+
+        # --- BST ---
+        bst = BST()
+        start = time.time()
+        for i in range(n):
+            bst.root = bst.insert(bst.root, names[i], phones[i])
+        bst_times['insert'].append(time.time() - start)
+
+        start = time.time()
+        for name in search_names:
+            bst.search(bst.root, name)
+        bst_times['search'].append(time.time() - start)
+
+        start = time.time()
+        for name in delete_names:
+            bst.root = bst.delete(bst.root, name)
+        bst_times['delete'].append(time.time() - start)
+
+        # --- AVL ---
+        avl = AVLTree()
+        start = time.time()
+        for i in range(n):
+            avl.root = avl.insert(avl.root, names[i], phones[i])
+        avl_times['insert'].append(time.time() - start)
+
+        start = time.time()
+        for name in search_names:
+            avl.search(avl.root, name)
+        avl_times['search'].append(time.time() - start)
+
+        start = time.time()
+        for name in delete_names:
+            avl.root = avl.delete(avl.root, name)
+        avl_times['delete'].append(time.time() - start)
+
+    # Plot results
+    plt.figure(figsize=(12, 8))
+
+    # Insertions plot
+    plt.subplot(3, 1, 1)
+    plt.plot(sizes, bst_times['insert'], label='BST Insert')
+    plt.plot(sizes, avl_times['insert'], label='AVL Insert')
+    plt.ylabel('Time (seconds)')
+    plt.title('Insertion Time vs Input Size')
+    plt.legend()
+
+    # Searches plot
+    plt.subplot(3, 1, 2)
+    plt.plot(sizes, bst_times['search'], label='BST Search')
+    plt.plot(sizes, avl_times['search'], label='AVL Search')
+    plt.ylabel('Time (seconds)')
+    plt.title('Search Time vs Input Size')
+    plt.legend()
+
+    # Deletions plot
+    plt.subplot(3, 1, 3)
+    plt.plot(sizes, bst_times['delete'], label='BST Delete')
+    plt.plot(sizes, avl_times['delete'], label='AVL Delete')
+    plt.xlabel('Number of Nodes')
+    plt.ylabel('Time (seconds)')
+    plt.title('Deletion Time vs Input Size')
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
+
+# Example usage:
+if __name__ == "__main__":
+    sizes_to_test = [100, 500, 1000, 5000, 10000]
+    run_benchmark_for_sizes(sizes_to_test)
+
+
 # ===== Run the app =====
 
 if __name__ == "__main__":
